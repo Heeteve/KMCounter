@@ -1,0 +1,23 @@
+name: ahk to exe
+
+on: push
+
+jobs:
+  ahk2exe:
+    name: ahk2exe
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Build
+        uses: nekocodeX/GitHub-Action-Ahk2Exe@v1.1.0
+        with:
+          in: KMCounter.ahk
+          icon: resouces/KMCounter.ico
+          
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: KMCounter.exe
+        
